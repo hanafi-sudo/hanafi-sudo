@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Otomotif</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Form Portal Otomotif</h2>
+    <form onsubmit="return simpanData()">
+      <input type="text" id="nama" placeholder="Nama Lengkap" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <select id="jenis" required>
+        <option value="">-- Pilih Kendaraan Favorit --</option>
+        <option value="Mobil">Mobil</option>
+        <option value="Motor">Motor</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+  
+  <script>
+    function simpanData() {
+      const nama = document.getElementById('nama').value;
+      const email = document.getElementById('email').value;
+      const jenis = document.getElementById('jenis').value;
+
+      // Simpan ke LocalStorage
+      localStorage.setItem('nama', nama);
+      localStorage.setItem('email', email);
+      localStorage.setItem('jenis', jenis);
+
+      // Pindah ke usher.html
+      window.location.href = 'usher.html';
+      return false; // cegah reload
+    }
+  </script>
+</body>
+</html>
